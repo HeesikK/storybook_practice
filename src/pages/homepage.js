@@ -2,36 +2,29 @@ import styled from "styled-components";
 import HSButton from "../components/button";
 import HSInput from "../components/input";
 import { useState } from "react";
+import useInput from "../hooks/use-input";
+import formValidate from "../utils/validate-helper";
 
 const HomePage = () => {
-  const [{ email, password }, setInput] = useState({
+  const [{ email, password }, onChangeInput] = useInput({
     email: "",
     password: "",
   });
 
+  const { disabled, errors } = formValidate({ email, password });
+  console.log(disabled, errors);
+
   const onSubmitForm = (e) => {
     e.preventDefault();
-    const { email, password } = e.target;
-  };
-
-  const onChangeInput = (e) => {
-    setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    if (email === "test@test.com" && password === "test1234") alert("환영합니다");
   };
 
   return (
     <Wrapper>
       <form onSubmit={onSubmitForm}>
-        <HSInput label={"이메일"} type="text" name="email" onChange={onChangeInput} placeholder="이메일을 입력해주세요" isValid={!email.includes("@")} error={"이메일 양식을 확인해주세요"} />
-        <HSInput
-          label={"비밀번호"}
-          type="password"
-          name="password"
-          onChange={onChangeInput}
-          placeholder="비밀번호를 입력해주세요"
-          isValid={password.length < 8}
-          error={"비밀번호는 8자리 이상입니다"}
-        />
-        <HSButton variant={"primary"} size={"large"} shape={"shape"}>
+        <HSInput label={"이메일"} type="text" name="email" onChange={onChangeInput} placeholder="이메일을 입력해주세요" error={errors.email} />
+        <HSInput label={"비밀번호"} type="password" name="password" onChange={onChangeInput} placeholder="비밀번호를 입력해주세요" error={errors.password} />
+        <HSButton variant={"primary"} size={"large"} shape={"shape"} disabled={disabled}>
           로그인
         </HSButton>
       </form>

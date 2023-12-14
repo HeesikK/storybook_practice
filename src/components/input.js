@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-const HSInput = ({ label, isValid, error, ...inputProps }) => {
+const HSInput = ({ label, error, ...inputProps }) => {
   return (
     <InputBox>
       <label>{label}</label>
       <input {...inputProps} />
-      {isValid && <ValidateMessage>{error}</ValidateMessage>}
+      {error && <ValidateMessage>{error}</ValidateMessage>}
     </InputBox>
   );
 };

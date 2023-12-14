@@ -1,15 +1,16 @@
 const COLORS = {
   primary: {
-    blue: "#282190",
-    navy: "#100D45",
-    yellow: "#FFD02C",
-    logo: "#232054",
+    mint: "#a2e0d1",
+    deep_mint: "#81dbcb",
+  },
+  secondary: {
+    purple: "#a49cd6",
+    deep_purple: "#8578d6",
   },
   font: "#0F0F0F",
   error: "#EC0707",
-  access: "#28D464",
   white: "#FFFFFF",
-  black: "#0F0F0F",
+  black: "#000000",
   gray: {
     100: "#F1F1F1",
     200: "#D9D9D9",
@@ -30,7 +31,7 @@ const FONT_SIZE = {
 const FONT_WEIGHT = {
   thin: 400,
   regular: 500,
-  bold: 700,
+  bold: 600,
 };
 
 const theme = {

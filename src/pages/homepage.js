@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import HSButton from "../components/button";
+import HSInput from "../components/input";
 import { useState } from "react";
 
 const HomePage = () => {
@@ -20,16 +21,16 @@ const HomePage = () => {
   return (
     <Wrapper>
       <form onSubmit={onSubmitForm}>
-        <InputBox>
-          <label>이메일</label>
-          <input type="text" placeholder="이메일을 입력하세요" name="email" onChange={onChangeInput} />
-          {!email.includes("@") && <ValidateMessage>이메일 양식을 확인해주세요</ValidateMessage>}
-        </InputBox>
-        <InputBox>
-          <label>비밀번호</label>
-          <input type="password" placeholder="비밀번호를 입력하세요" name="password" onChange={onChangeInput} />
-          {password.length < 8 && <ValidateMessage>비밀번호는 8자리 이상입니다</ValidateMessage>}
-        </InputBox>
+        <HSInput label={"이메일"} type="text" name="email" onChange={onChangeInput} placeholder="이메일을 입력해주세요" isValid={!email.includes("@")} error={"이메일 양식을 확인해주세요"} />
+        <HSInput
+          label={"비밀번호"}
+          type="password"
+          name="password"
+          onChange={onChangeInput}
+          placeholder="비밀번호를 입력해주세요"
+          isValid={password.length < 8}
+          error={"비밀번호는 8자리 이상입니다"}
+        />
         <HSButton variant={"primary"} size={"large"} shape={"shape"}>
           로그인
         </HSButton>
@@ -45,24 +46,4 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-`;
-
-const InputBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 10px 0 10px 0;
-  & > input {
-    width: 200px;
-    padding: 10px 5px;
-    border-radius: 8px;
-    border: none;
-    background-color: #e8e8e8;
-    margin-top: 5px;
-  }
-`;
-
-const ValidateMessage = styled.p`
-  margin: 0px;
-  color: red;
-  font-size: 12px;
 `;

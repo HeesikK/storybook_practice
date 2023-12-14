@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components";
 
-const HSButton = ({ variant, size, shape, children }) => {
+const HSButton = ({ variant, size, shape, children, ...rest }) => {
   console.log(variant, size, shape, children);
   return (
-    <Button variant={variant} size={size} shape={shape}>
+    <Button variant={variant} size={size} shape={shape} {...rest}>
       {children}
     </Button>
   );

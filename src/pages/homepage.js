@@ -17,6 +17,7 @@ const HomePage = () => {
   const onSubmitForm = (e) => {
     e.preventDefault();
     if (email === "test@test.com" && password === "test1234") alert("환영합니다");
+    if (email !== "test@test.com" || password !== "test1234") alert("회원정보가 올바르지 않습니다");
   };
 
   return (

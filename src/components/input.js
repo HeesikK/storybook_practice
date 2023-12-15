@@ -3,7 +3,7 @@ import styled from "styled-components";
 const HSInput = ({ label, error, ...inputProps }) => {
   return (
     <InputBox>
-      <label>{label}</label>
+      <Label>{label}</Label>
       <input {...inputProps} />
       {error && <ValidateMessage>{error}</ValidateMessage>}
     </InputBox>
@@ -18,16 +18,24 @@ const InputBox = styled.div`
   margin: 10px 0 10px 0;
   & > input {
     width: 200px;
-    padding: 10px 5px;
+    box-sizing: border-box;
+    padding: 10px 10px;
     border-radius: 8px;
     border: none;
-    background-color: #e8e8e8;
+    background-color: ${({ theme }) => theme.COLORS.gray[100]};
     margin-top: 5px;
+    &:focus {
+      outline: none;
+    }
   }
+`;
+
+const Label = styled.label`
+  font-size: ${({ theme }) => theme.FONT_SIZE.small};
 `;
 
 const ValidateMessage = styled.p`
   margin: 0px;
-  color: red;
-  font-size: 12px;
+  color: ${({ theme }) => theme.COLORS.error};
+  font-size: ${({ theme }) => theme.FONT_SIZE.extraSmall};
 `;

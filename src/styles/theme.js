@@ -21,7 +21,7 @@ const COLORS = {
 };
 
 const FONT_SIZE = {
-  extraSmall: "14px",
+  extraSmall: "12px",
   small: "16px",
   medium: "18px",
   large: "20px",

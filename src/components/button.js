@@ -45,7 +45,7 @@ const sizeCSS = {
     font-size: ${({ theme }) => theme.FONT_SIZE.large};
     font-weight: ${({ theme }) => theme.FONT_WEIGHT.bold};
     height: 40px;
-    width: 210px;
+    width: 200px;
   `,
 };
 

@@ -4,6 +4,7 @@ import HSInput from "../components/input";
 import { useState } from "react";
 import useInput from "../hooks/use-input";
 import formValidate from "../utils/validate-helper";
+import HSCheckBox from "../components/checkbox";
 
 const HomePage = () => {
   const [{ email, password }, onChangeInput] = useInput({
@@ -25,6 +26,9 @@ const HomePage = () => {
       <form onSubmit={onSubmitForm}>
         <HSInput label={"이메일"} type="text" name="email" onChange={onChangeInput} placeholder="이메일을 입력해주세요" error={errors.email} />
         <HSInput label={"비밀번호"} type="password" name="password" onChange={onChangeInput} placeholder="비밀번호를 입력해주세요" error={errors.password} />
+        <CheckBoxArea>
+          <HSCheckBox type="checkbox" label={"로그인 상태 유지"} id={"Checked"} onClick={() => console.log("체크")} />
+        </CheckBoxArea>
         <HSButton variant={"primary"} size={"large"} shape={"shape"} disabled={disabled}>
           로그인
         </HSButton>
@@ -37,7 +41,12 @@ export default HomePage;
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+`;
+
+const CheckBoxArea = styled.div`
+  margin: 10px 0 10px 0;
 `;

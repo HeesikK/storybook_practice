@@ -5,6 +5,7 @@ import { useState } from "react";
 import useInput from "../hooks/use-input";
 import formValidate from "../utils/validate-helper";
 import HSCheckBox from "../components/checkbox";
+import HSSelect from "../components/select";
 
 const HomePage = () => {
   const [{ email, password }, onChangeInput] = useInput({
@@ -33,6 +34,9 @@ const HomePage = () => {
           로그인
         </HSButton>
       </form>
+      <div>
+        <HSSelect />
+      </div>
     </Wrapper>
   );
 };
